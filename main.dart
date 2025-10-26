@@ -1,47 +1,73 @@
-import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MooVeesApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class MooVeesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => MyAppState(),
-      child: MaterialApp(
-        title: 'Welcome to Flutter',
-        theme: ThemeData(
-          useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+    return MaterialApp(
+      home: Scaffold(
+        body: Padding(
+          padding: EdgeInsets.all(24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 20),
+                child: Text(
+                  'MooVees',
+                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                ),
+              ),
+              Stack(
+                alignment: Alignment.bottomRight,
+                children: [
+                  Image.asset(
+                    'assets/logoMoovee.jpg',
+                    width: 500,
+                    height: 300,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Text(
+                      'By JoMiA',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                        backgroundColor: Colors.black54,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  TextButton(
+                    onPressed: () {},
+                    child: Text('Iniciar sesión'),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text('Registrarse'),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.facebook, color: Colors.blue, size: 32),
+                  SizedBox(width: 20),
+                  Icon(Icons.g_mobiledata, color: Colors.red, size: 32),
+                ],
+              ),
+            ],
+          ),
         ),
-        home: MyHomePage(),
-      ),
-    );
-  }
-}
-
-class MyAppState extends ChangeNotifier {
-  var current = WordPair.random();
-}
-
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
-
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Hello World'),
-          ],
-        )
       ),
     );
   }
