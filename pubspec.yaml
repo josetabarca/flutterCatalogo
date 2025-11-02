@@ -1,5 +1,5 @@
-name: ldsw_utilizacion_de_widgets
-description: A new Flutter project.
+name: moovees
+description: "Aplicación para un catálogo de películas."
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
@@ -24,5 +24,4 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/logoMoovee.jpg
-
+    - assets/filmhome.jpg
